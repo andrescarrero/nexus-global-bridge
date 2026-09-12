@@ -341,7 +341,7 @@ function Index() {
       </section>
 
       <footer className="bg-footer py-14 text-footer-foreground">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-footer-foreground/12 pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-footer-foreground/55">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em]">{column[0]}</strong>{column.slice(1).map((link) => <a key={link} href="#top" className="mt-3 block text-sm text-footer-foreground/50 hover:text-accent">{link}</a>)}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-footer-foreground/45 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Nexus Global Supply Solutions LLC. {t.rights}</span><span>Miami · Caracas · Global</span></div></div>
+        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-footer-foreground/12 pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-footer-foreground/55">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em]">{column[0]}</strong>{column.slice(1).map((link) => <a key={link} href="#top" className="mt-3 block text-sm text-footer-foreground/50 hover:text-accent">{link}</a>)}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-footer-foreground/45 sm:flex-row sm:items-center sm:justify-between"><span>© 2025 Nexus Global Supply Solutions LLC. {t.rights}</span><span>Miami · Caracas · Global</span></div></div>
       </footer>
     </main>
   );
