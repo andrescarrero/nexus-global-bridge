@@ -21,12 +21,12 @@ import {
   X,
 } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import logisticsImage from "@/assets/nexus-logistics.jpg";
+import logisticsImage from "@/assets/banner.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nexus Global Supply Solutions | Global Logistics" },
+      { title: "Nexus Global Supply Solutions | Global Services" },
       { name: "description", content: "End-to-end sourcing, distribution and logistics solutions connecting modern businesses to global supply." },
       { property: "og:title", content: "Nexus Global Supply Solutions" },
       { property: "og:description", content: "Your bridge to the world's supply." },
@@ -51,6 +51,7 @@ const copy = {
     aboutTitle: "Global reach. Personal accountability.",
     aboutBody: "Nexus connects ambitious businesses to a dependable global supply network. We manage every critical handoff—from identifying the right source to delivering the final shipment—with clarity, precision, and care.",
     aboutLink: "Discover our approach",
+    imageCaption: ["GLOBAL NETWORK", "LOCAL CONTROL"],
     servicesLabel: "WHAT WE DO",
     servicesTitle: "Built for every link in your supply chain",
     servicesIntro: "One accountable partner across sourcing, commerce, operations, and delivery.",
@@ -70,32 +71,34 @@ const copy = {
     whyLabel: "WHY NEXUS",
     whyTitle: "Measured by the outcomes that matter",
     whyBody: "Global supply chains are complex. Your experience shouldn't be. Our network, operating discipline, and responsive team turn moving parts into dependable progress.",
-    metrics: [["Products sourced", 500, "+"], ["Countries served", 20, "+"], ["On-time delivery", 99, "%"]],
-    trustLabel: "CLIENT PERSPECTIVES",
-    trustTitle: "Trusted to keep business moving",
+    metrics: [["Available support", 24, "/7"], ["Traceability", 100, "%"], ["Hidden costs", 0, ""]],
+    valueChips: ["Proactive visibility", "One accountable team"],
+    trustLabel: "OUR DIFFERENCE",
+    trustTitle: "What sets us apart",
     testimonials: [
-      ["Nexus gave us visibility we never had before. Their team made a complex international launch feel controlled from day one.", "Elena Márquez", "COO, Northline Commerce"],
-      ["We found the right manufacturing partner and cut weeks from our sourcing cycle without compromising quality.", "Daniel Foster", "Founder, Altura Goods"],
-      ["Responsive, precise, and accountable. Nexus has become an extension of our operations team.", "Sofia Chen", "VP Operations, Everfield"],
+      ["Clear pricing from day one. No surprises, no hidden fees. Every step of the process is transparent and visible to you. We believe in building trust through complete openness in every transaction and communication.", "Total Transparency", "Honest & Clear"],
+      ["Your time matters. We respond within 24 hours and adapt to your needs in real-time. Our agile approach means we pivot quickly when circumstances change, keeping your supply chain moving without delays.", "Agile Response", "Fast & Flexible"],
+      ["A team with years of experience in global logistics, 100% focused on your operation's success. We bring deep industry knowledge and proven processes to ensure your shipments arrive on time, every time.", "Dedicated Expertise", "Experienced & Committed"],
     ],
     partners: "ECOSYSTEM EXPERIENCE",
     contactLabel: "START A CONVERSATION",
     contactTitle: "Let's move your business forward.",
-    contactBody: "Tell us what you need to source, ship, or simplify. Our team will respond within one business day.",
+    contactBody: "Tell us what you need to source, ship, or simplify. Our team will respond to your request.",
     fields: ["Name", "Company", "Email", "How can we help?"],
     placeholders: ["Your full name", "Company name", "you@company.com", "Tell us about your supply needs"],
     send: "Send Request",
     sent: "Request sent — we'll be in touch shortly.",
     location: "Miami, Florida · Serving globally",
     hours: "Monday–Friday · 9:00–18:00 ET",
-    slogan: "Your bridge to global supply.",
+    slogan: "Connecting Markets. Delivering Results.",
     columns: [["Company", "About", "Why Nexus"], ["Services", "Sourcing", "Distribution", "Logistics"], ["Legal", "Privacy", "Terms"]],
     rights: "All rights reserved.",
+    footerLocation: "Based in Florida · Serving Globally",
   },
   es: {
     nav: ["Nosotros", "Servicios", "Proceso", "Por qué Nexus", "Contacto"],
     heroLabel: "SUMINISTRO GLOBAL, SIMPLIFICADO",
-    heroTitle: "Tu Puente hacia el Abastecimiento Mundial",
+    heroTitle: "Tu puente hacia el abastecimiento mundial",
     heroSubtitle: "Soluciones integrales de cadena de suministro para el comercio digital moderno.",
     quote: "Solicitar Cotización",
     learn: "Saber Más",
@@ -103,6 +106,7 @@ const copy = {
     aboutTitle: "Alcance global. Compromiso personal.",
     aboutBody: "Nexus conecta empresas ambiciosas con una red global de suministro confiable. Gestionamos cada punto crítico—desde identificar la fuente correcta hasta entregar el envío final—con claridad, precisión y cuidado.",
     aboutLink: "Conoce nuestro enfoque",
+    imageCaption: ["RED GLOBAL", "CONTROL LOCAL"],
     servicesLabel: "QUÉ HACEMOS",
     servicesTitle: "Presentes en cada eslabón de tu cadena",
     servicesIntro: "Un solo aliado responsable para abastecimiento, comercio, operaciones y entrega.",
@@ -110,7 +114,7 @@ const copy = {
       ["Abastecimiento Internacional", "Encontramos y validamos proveedores confiables con precios transparentes y estándares rigurosos."],
       ["Distribución E-Commerce", "Movemos inventario sin fricción entre marketplaces y redes de cumplimiento."],
       ["Gestión de Cadena de Suministro", "Obtén visibilidad integral, operaciones coordinadas y planificación resiliente."],
-      ["Importación y Logística", "Gestiona carga, aduanas, documentación y última milla con confianza."],
+      ["Exportación y Logística", "Gestiona carga, aduanas, documentación y última milla con confianza."],
     ],
     processLabel: "UN CAMINO MÁS CLARO",
     processTitle: "Cómo funciona",
@@ -122,35 +126,36 @@ const copy = {
     whyLabel: "POR QUÉ NEXUS",
     whyTitle: "Medidos por los resultados que importan",
     whyBody: "Las cadenas globales son complejas. Tu experiencia no debería serlo. Nuestra red, disciplina operativa y equipo ágil convierten cada parte en progreso confiable.",
-    metrics: [["Productos abastecidos", 500, "+"], ["Países atendidos", 20, "+"], ["Entregas a tiempo", 99, "%"]],
-    trustLabel: "PERSPECTIVAS DE CLIENTES",
-    trustTitle: "La confianza que mantiene tu negocio en marcha",
+    metrics: [["Soporte disponible", 24, "/7"], ["Trazabilidad", 100, "%"], ["Costos ocultos", 0, ""]],
+    valueChips: ["Visibilidad proactiva", "Un equipo responsable"],
+    trustLabel: "NUESTRA DIFERENCIA",
+    trustTitle: "Lo que nos distingue",
     testimonials: [
-      ["Nexus nos dio una visibilidad que nunca habíamos tenido. Su equipo hizo que un lanzamiento internacional complejo se sintiera controlado desde el primer día.", "Elena Márquez", "COO, Northline Commerce"],
-      ["Encontramos el socio de manufactura ideal y redujimos semanas del ciclo de abastecimiento sin comprometer la calidad.", "Daniel Foster", "Fundador, Altura Goods"],
-      ["Ágiles, precisos y responsables. Nexus se ha convertido en una extensión de nuestro equipo de operaciones.", "Sofia Chen", "VP Operaciones, Everfield"],
+      ["Precios claros desde el inicio. Sin sorpresas, sin costos ocultos. Cada paso del proceso es transparente y visible para ti. Creemos en construir confianza a través de la apertura total en cada transacción y comunicación.", "Transparencia Total", "Honesto y Claro"],
+      ["Tu tiempo es valioso. Respondemos en menos de 24 horas y nos adaptamos a tus necesidades en tiempo real. Nuestro enfoque ágil significa que pivotamos rápidamente cuando las circunstancias cambian, manteniendo tu cadena de suministro en movimiento sin demoras.", "Respuesta Ágil", "Rápido y Flexible"],
+      ["Un equipo con años de experiencia en logística global, enfocado 100% en el éxito de tu operación. Aportamos conocimiento profundo de la industria y procesos probados para garantizar que tus envíos lleguen a tiempo, siempre.", "Experiencia Dedicada", "Experimentado y Comprometido"],
     ],
     partners: "EXPERIENCIA EN EL ECOSISTEMA",
     contactLabel: "INICIEMOS UNA CONVERSACIÓN",
     contactTitle: "Movamos tu negocio hacia adelante.",
-    contactBody: "Cuéntanos qué necesitas abastecer, enviar o simplificar. Nuestro equipo responderá en un día hábil.",
+    contactBody: "Cuéntanos qué necesitas abastecer, enviar o simplificar. Nuestro equipo responderá tu solicitud.",
     fields: ["Nombre", "Empresa", "Email", "¿Cómo podemos ayudarte?"],
     placeholders: ["Tu nombre completo", "Nombre de la empresa", "tu@empresa.com", "Cuéntanos sobre tus necesidades"],
     send: "Enviar Solicitud",
     sent: "Solicitud enviada — pronto estaremos en contacto.",
     location: "Miami, Florida · Servicio global",
     hours: "Lunes–viernes · 9:00–18:00 ET",
-    slogan: "Tu puente al suministro global.",
+    slogan: "Conectando mercados. Entregando resultados.",
     columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Abastecimiento", "Distribución", "Logística"], ["Legal", "Privacidad", "Términos"]],
     rights: "Todos los derechos reservados.",
+    footerLocation: "Con sede en Florida · Servicio Global",
   },
 } as const;
 
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <a href="#top" aria-label="Nexus Global Supply Solutions" className="group flex items-center gap-3">
-      <span className="logo-mark" aria-hidden="true"><span /></span>
-      {!compact && <span className="leading-none"><strong className="block font-display text-xl tracking-normal">NEXUS</strong><span className="mt-1 block text-[9px] font-light uppercase tracking-[0.22em] opacity-75">Global Supply Solutions</span></span>}
+      <img src="/logo.png" alt="Nexus Global Supply Solutions" className={compact ? "h-24" : "h-28 md:h-32 lg:h-36"} />
     </a>
   );
 }
@@ -177,9 +182,9 @@ function NetworkCanvas() {
       nodes.forEach((node) => { if (!reduced) { node.x = (node.x + node.vx + 1) % 1; node.y = (node.y + node.vy + 1) % 1; } });
       nodes.forEach((a, i) => nodes.slice(i + 1).forEach((b) => {
         const dx = (a.x - b.x) * width; const dy = (a.y - b.y) * height; const d = Math.hypot(dx, dy);
-        if (d < 145) { context.strokeStyle = `rgba(118, 168, 216, ${0.14 * (1 - d / 145)})`; context.lineWidth = 1; context.beginPath(); context.moveTo(a.x * width, a.y * height); context.lineTo(b.x * width, b.y * height); context.stroke(); }
+        if (d < 145) { context.strokeStyle = `rgba(118, 168, 216, ${0.35 * (1 - d / 145)})`; context.lineWidth = 1.5; context.beginPath(); context.moveTo(a.x * width, a.y * height); context.lineTo(b.x * width, b.y * height); context.stroke(); }
       }));
-      nodes.forEach((node, index) => { context.fillStyle = index % 11 === 0 ? "rgba(244,130,31,.8)" : "rgba(180,211,239,.5)"; context.beginPath(); context.arc(node.x * width, node.y * height, index % 11 === 0 ? 2.5 : 1.4, 0, Math.PI * 2); context.fill(); });
+      nodes.forEach((node, index) => { context.fillStyle = index % 11 === 0 ? "rgba(244,130,31,.95)" : "rgba(180,211,239,.75)"; context.beginPath(); context.arc(node.x * width, node.y * height, index % 11 === 0 ? 3.5 : 2, 0, Math.PI * 2); context.fill(); });
       frame += 1; if (!reduced || frame < 2) animation = requestAnimationFrame(draw);
     };
     draw();
@@ -281,8 +286,8 @@ function Index() {
             <a href="#services" className="text-link mt-8 inline-flex items-center gap-2">{t.aboutLink}<ArrowRight size={16} /></a>
           </Reveal>
           <Reveal className="relative" delay={120}>
-            <div className="image-frame"><img src={logisticsImage} alt="Logistics professionals coordinating shipments at a global container port" loading="lazy" width={1400} height={1100} className="h-full w-full object-cover" /></div>
-            <div className="image-caption"><Globe2 size={18} /><span>GLOBAL NETWORK<br /><strong>LOCAL CONTROL</strong></span></div>
+            <div className="image-frame"><img src={logisticsImage} alt="Nexus Global Supply Solutions" loading="lazy" width={1400} height={1100} className="h-full w-full object-cover" /></div>
+            <div className="image-caption"><Globe2 size={18} /><span>{t.imageCaption[0]}<br /><strong>{t.imageCaption[1]}</strong></span></div>
           </Reveal>
         </div>
       </section>
@@ -314,7 +319,7 @@ function Index() {
           <div ref={metricsRef} className="grid gap-10 sm:grid-cols-3 lg:grid-cols-1">
             {t.metrics.map(([label, value, suffix]) => <Metric key={label} label={label} value={value} suffix={suffix} active={metricsActive} />)}
           </div>
-          <Reveal className="lg:pt-8"><div className="eyebrow text-accent">{t.whyLabel}</div><h2 className="section-title mt-5">{t.whyTitle}</h2><p className="mt-7 text-base leading-8 text-muted-foreground">{t.whyBody}</p><div className="mt-9 grid grid-cols-2 gap-4"><div className="value-chip"><Check size={17} />Proactive visibility</div><div className="value-chip"><Check size={17} />One accountable team</div></div></Reveal>
+          <Reveal className="lg:pt-8"><div className="eyebrow text-accent">{t.whyLabel}</div><h2 className="section-title mt-5">{t.whyTitle}</h2><p className="mt-7 text-base leading-8 text-muted-foreground">{t.whyBody}</p><div className="mt-9 grid grid-cols-2 gap-4">{t.valueChips.map((chip) => <div key={chip} className="value-chip"><Check size={17} />{chip}</div>)}</div></Reveal>
         </div>
       </section>
 
@@ -328,7 +333,6 @@ function Index() {
               <div className="mt-8 flex gap-2"><button className="carousel-button" onClick={() => setTestimonial((testimonial - 1 + t.testimonials.length) % t.testimonials.length)} aria-label="Previous testimonial"><ChevronLeft size={18} /></button><button className="carousel-button" onClick={() => setTestimonial((testimonial + 1) % t.testimonials.length)} aria-label="Next testimonial"><ChevronRight size={18} /></button></div>
             </div>
           </Reveal>
-          <div className="partner-row mt-16"><span>{t.partners}</span><strong>amazon</strong><strong>shopify</strong><strong>LLC</strong><strong>FREIGHT<br />FORWARD</strong></div>
         </div>
       </section>
 
@@ -340,8 +344,8 @@ function Index() {
         </div>
       </section>
 
-      <footer className="bg-footer py-14 text-footer-foreground">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-footer-foreground/12 pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-footer-foreground/55">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em]">{column[0]}</strong>{column.slice(1).map((link) => <a key={link} href="#top" className="mt-3 block text-sm text-footer-foreground/50 hover:text-accent">{link}</a>)}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-footer-foreground/45 sm:flex-row sm:items-center sm:justify-between"><span>© 2025 Nexus Global Supply Solutions LLC. {t.rights}</span><span>Miami · Caracas · Global</span></div></div>
+      <footer className="bg-background py-14 text-foreground border-t border-border">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-border pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-muted-foreground">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em] text-foreground">{column[0]}</strong>{column.slice(1).map((link) => <a key={link} href="#top" className="mt-3 block text-sm text-muted-foreground hover:text-accent">{link}</a>)}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Nexus Global Supply Solutions LLC. {t.rights}</span><span>{t.footerLocation}</span></div></div>
       </footer>
     </main>
   );
