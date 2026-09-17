@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import logisticsImage from "@/assets/banner.png";
+import { CookieBanner } from "@/components/CookieBanner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +45,7 @@ const copy = {
   en: {
     nav: ["About", "Services", "Process", "Why Nexus", "Contact"],
     heroLabel: "GLOBAL SUPPLY, SIMPLIFIED",
-    heroTitle: "Your Bridge to the World's Supply",
+    heroTitle: "Your Bridge to Supply",
     heroSubtitle: "End-to-end supply chain solutions for the modern digital marketplace.",
     quote: "Get a Quote",
     learn: "Learn More",
@@ -57,16 +58,15 @@ const copy = {
     servicesTitle: "Built for every link in your supply chain",
     servicesIntro: "One accountable partner across sourcing, commerce, operations, and delivery.",
     serviceItems: [
-      ["International Sourcing", "Find and validate trusted suppliers with transparent pricing and rigorous quality standards."],
+      ["Sourcing", "Find and validate trusted suppliers with transparent pricing and rigorous quality standards."],
       ["E-Commerce Distribution", "Move inventory seamlessly across digital marketplaces and fulfillment networks."],
       ["Supply Chain Management", "Gain end-to-end visibility, coordinated operations, and resilient planning."],
-      ["Import & Logistics", "Navigate freight, customs, documentation, and final-mile delivery with confidence."],
     ],
     processLabel: "A CLEARER WAY FORWARD",
     processTitle: "How it works",
     steps: [
       ["Source", "We identify, vet, and secure the right products and suppliers."],
-      ["Ship", "We coordinate freight, customs, and documentation worldwide."],
+      ["Ship", "We coordinate your freight."],
       ["Deliver", "Your goods arrive where they need to be, on time and visible."],
     ],
     whyLabel: "WHY NEXUS",
@@ -92,14 +92,14 @@ const copy = {
     location: "Miami, Florida · Serving globally",
     hours: "Monday–Friday · 9:00–18:00 ET",
     slogan: "Connecting Markets. Delivering Results.",
-    columns: [["Company", "About", "Why Nexus"], ["Services", "Sourcing", "Distribution", "Logistics"], ["Legal", "Privacy", "Terms"]],
+    columns: [["Company", "About", "Why Nexus"], ["Services", "Sourcing", "Distribution", "Operations"], ["Legal", "Privacy", "Terms"]],
     rights: "All rights reserved.",
     footerLocation: "Based in Florida · Serving Globally",
   },
   es: {
     nav: ["Nosotros", "Servicios", "Proceso", "Por qué Nexus", "Contacto"],
     heroLabel: "SUMINISTRO GLOBAL, SIMPLIFICADO",
-    heroTitle: "Tu puente hacia el abastecimiento mundial",
+    heroTitle: "Tu puente hacia el abastecimiento",
     heroSubtitle: "Soluciones integrales de cadena de suministro para el comercio digital moderno.",
     quote: "Solicitar Cotización",
     learn: "Saber Más",
@@ -112,16 +112,15 @@ const copy = {
     servicesTitle: "Presentes en cada eslabón de tu cadena",
     servicesIntro: "Un solo aliado responsable para abastecimiento, comercio, operaciones y entrega.",
     serviceItems: [
-      ["Abastecimiento Internacional", "Encontramos y validamos proveedores confiables con precios transparentes y estándares rigurosos."],
+      ["Abastecimiento", "Encontramos y validamos proveedores confiables con precios transparentes y estándares rigurosos."],
       ["Distribución E-Commerce", "Movemos inventario sin fricción entre marketplaces y redes de cumplimiento."],
       ["Gestión de Cadena de Suministro", "Obtén visibilidad integral, operaciones coordinadas y planificación resiliente."],
-      ["Exportación y Logística", "Gestiona carga, aduanas, documentación y última milla con confianza."],
     ],
     processLabel: "UN CAMINO MÁS CLARO",
     processTitle: "Cómo funciona",
     steps: [
       ["Abastecemos", "Identificamos, validamos y aseguramos los productos y proveedores correctos."],
-      ["Enviamos", "Coordinamos carga, aduanas y documentación en todo el mundo."],
+      ["Enviamos", "Coordinamos tu carga."],
       ["Entregamos", "Tu mercancía llega a destino, a tiempo y siempre visible."],
     ],
     whyLabel: "POR QUÉ NEXUS",
@@ -147,7 +146,7 @@ const copy = {
     location: "Miami, Florida · Servicio global",
     hours: "Lunes–viernes · 9:00–18:00 ET",
     slogan: "Conectando mercados. Entregando resultados.",
-    columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Abastecimiento", "Distribución", "Logística"], ["Legal", "Privacidad", "Términos"]],
+    columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Abastecimiento", "Distribución", "Operaciones"], ["Legal", "Privacidad", "Términos"]],
     rights: "Todos los derechos reservados.",
     footerLocation: "Con sede en Florida · Servicio Global",
   },
@@ -241,8 +240,8 @@ function Index() {
 
   const setLang = (next: Language) => { setLanguage(next); window.localStorage.setItem("nexus-language", next); };
   const navTargets = ["about", "services", "process", "why", "contact"];
-  const serviceIcons = [Search, ShoppingBag, Network, Ship];
-  const stepIcons = [Search, Ship, PackageCheck];
+  const serviceIcons = [Search, ShoppingBag, Network];
+  const stepIcons = [Search, Truck, PackageCheck];
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSent(true); event.currentTarget.reset(); };
 
   return (
@@ -299,7 +298,7 @@ function Index() {
             <div><div className="eyebrow text-accent">{t.servicesLabel}</div><h2 className="section-title mt-5 max-w-3xl">{t.servicesTitle}</h2></div>
             <p className="max-w-md text-muted-foreground">{t.servicesIntro}</p>
           </Reveal>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 justify-items-center max-w-5xl mx-auto">
             {t.serviceItems.map(([title, body], i) => { const Icon = serviceIcons[i] ?? Box; return <Reveal key={title} delay={i * 90}><article className="service-card"><Icon size={28} strokeWidth={1.6} /><span className="service-index">0{i + 1}</span><h3>{title}</h3><p>{body}</p><ArrowRight className="mt-auto" size={18} /></article></Reveal>; })}
           </div>
         </div>
@@ -346,8 +345,13 @@ function Index() {
       </section>
 
       <footer className="bg-background py-14 text-foreground border-t border-border">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-border pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-muted-foreground">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em] text-foreground">{column[0]}</strong>{column.slice(1).map((link) => <a key={link} href="#top" className="mt-3 block text-sm text-muted-foreground hover:text-accent">{link}</a>)}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Nexus Global Supply Solutions LLC. {t.rights}</span><span>{t.footerLocation}</span></div></div>
+        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-border pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-muted-foreground">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column, colIndex) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em] text-foreground">{column[0]}</strong>{column.slice(1).map((link) => {
+          const href = colIndex === 2 && link === "Privacy" ? "/privacy" : colIndex === 2 && link === "Terms" ? "/terms" : "#top";
+          return <a key={link} href={href} className="mt-3 block text-sm text-muted-foreground hover:text-accent">{link}</a>;
+        })}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Nexus Global Supply Solutions LLC. {t.rights}</span><span>{t.footerLocation}</span></div></div>
       </footer>
+
+      <CookieBanner />
     </main>
   );
 }
