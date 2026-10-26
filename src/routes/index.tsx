@@ -23,7 +23,7 @@ import {
   X,
 } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import logisticsImage from "@/assets/banner.png";
+import logisticsImage from "@/assets/about-image.webp";
 import { CookieBanner } from "@/components/CookieBanner";
 
 export const Route = createFileRoute("/")({
@@ -311,7 +311,7 @@ function Index() {
       </section>
 
       <section id="about" className="section-pad bg-background">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:gap-20 lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:px-8">
           <Reveal className="border-l-2 border-accent pl-7 md:pl-10">
             <div className="eyebrow text-accent">{t.aboutLabel}</div>
             <h2 className="section-title mt-5">{t.aboutTitle}</h2>
