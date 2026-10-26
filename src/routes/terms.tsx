@@ -220,7 +220,7 @@ function Terms() {
           </p>
           <p className="mt-4 leading-7 text-muted-foreground">
             <strong>{t.sections.section9.company}</strong><br />
-            <strong>{t.sections.section9.email}</strong> NexusGlobalSupplySolutions@gmail.com<br />
+            <strong>{t.sections.section9.email}</strong> contact@nexusglobalss.com<br />
             <strong>{t.sections.section9.location}</strong> {t.sections.section9.address}
           </p>
         </div>

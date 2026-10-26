@@ -11,6 +11,7 @@ import {
   Mail,
   MapPin,
   Menu,
+  MessageCircle,
   Network,
   PackageCheck,
   Quote,
@@ -41,6 +42,8 @@ export const Route = createFileRoute("/")({
 
 type Language = "en" | "es";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwlllrdd";
+
 const copy = {
   en: {
     nav: ["About", "Services", "Process", "Why Nexus", "Contact"],
@@ -58,15 +61,16 @@ const copy = {
     servicesTitle: "Built for every link in your supply chain",
     servicesIntro: "One accountable partner across sourcing, commerce, operations, and delivery.",
     serviceItems: [
-      ["Sourcing", "Find and validate trusted suppliers with transparent pricing and rigorous quality standards."],
-      ["E-Commerce Distribution", "Move inventory seamlessly across digital marketplaces and fulfillment networks."],
+      ["International Sourcing", "Find and validate trusted suppliers with transparent pricing and rigorous quality standards."],
+      ["Warehousing & Distribution", "Store and move inventory efficiently across our partner network, ready for any channel."],
       ["Supply Chain Management", "Gain end-to-end visibility, coordinated operations, and resilient planning."],
+      ["Export & Logistics", "Navigate freight, customs, documentation, and final-mile delivery with confidence."],
     ],
     processLabel: "A CLEARER WAY FORWARD",
     processTitle: "How it works",
     steps: [
       ["Source", "We identify, vet, and secure the right products and suppliers."],
-      ["Ship", "We coordinate your freight."],
+      ["Ship", "We coordinate freight, customs, and documentation worldwide."],
       ["Deliver", "Your goods arrive where they need to be, on time and visible."],
     ],
     whyLabel: "WHY NEXUS",
@@ -85,14 +89,19 @@ const copy = {
     contactLabel: "START A CONVERSATION",
     contactTitle: "Let's move your business forward.",
     contactBody: "Tell us what you need to source, ship, or simplify. Our team will respond to your request.",
+    emails: [["General inquiries", "info@nexusglobalss.com"], ["Sales & new clients", "contact@nexusglobalss.com"]],
+    whatsappLabel: "WhatsApp",
+    whatsappNumber: "+1 (727) 482-5106",
     fields: ["Name", "Company", "Email", "How can we help?"],
     placeholders: ["Your full name", "Company name", "you@company.com", "Tell us about your supply needs"],
     send: "Send Request",
+    sending: "Sending...",
     sent: "Request sent — we'll be in touch shortly.",
+    formError: "Something went wrong. Please try again or email us directly.",
     location: "Miami, Florida · Serving globally",
     hours: "Monday–Friday · 9:00–18:00 ET",
     slogan: "Connecting Markets. Delivering Results.",
-    columns: [["Company", "About", "Why Nexus"], ["Services", "Sourcing", "Distribution", "Operations"], ["Legal", "Privacy", "Terms"]],
+    columns: [["Company", "About", "Why Nexus"], ["Services", "Sourcing", "Distribution", "Logistics"], ["Legal", "Privacy", "Terms"]],
     rights: "All rights reserved.",
     footerLocation: "Based in Florida · Serving Globally",
   },
@@ -112,15 +121,16 @@ const copy = {
     servicesTitle: "Presentes en cada eslabón de tu cadena",
     servicesIntro: "Un solo aliado responsable para abastecimiento, comercio, operaciones y entrega.",
     serviceItems: [
-      ["Abastecimiento", "Encontramos y validamos proveedores confiables con precios transparentes y estándares rigurosos."],
-      ["Distribución E-Commerce", "Movemos inventario sin fricción entre marketplaces y redes de cumplimiento."],
+      ["Abastecimiento Internacional", "Encontramos y validamos proveedores confiables con precios transparentes y estándares rigurosos."],
+      ["Almacenamiento y Distribución", "Almacenamos y movemos inventario de forma eficiente en nuestra red de socios, listo para cualquier canal."],
       ["Gestión de Cadena de Suministro", "Obtén visibilidad integral, operaciones coordinadas y planificación resiliente."],
+      ["Exportación y Logística", "Gestiona carga, aduanas, documentación y última milla con confianza."],
     ],
     processLabel: "UN CAMINO MÁS CLARO",
     processTitle: "Cómo funciona",
     steps: [
       ["Abastecemos", "Identificamos, validamos y aseguramos los productos y proveedores correctos."],
-      ["Enviamos", "Coordinamos tu carga."],
+      ["Enviamos", "Coordinamos carga, aduanas y documentación en todo el mundo."],
       ["Entregamos", "Tu mercancía llega a destino, a tiempo y siempre visible."],
     ],
     whyLabel: "POR QUÉ NEXUS",
@@ -139,14 +149,19 @@ const copy = {
     contactLabel: "INICIEMOS UNA CONVERSACIÓN",
     contactTitle: "Movamos tu negocio hacia adelante.",
     contactBody: "Cuéntanos qué necesitas abastecer, enviar o simplificar. Nuestro equipo responderá tu solicitud.",
+    emails: [["Información general", "info@nexusglobalss.com"], ["Clientes y nuevos negocios", "contact@nexusglobalss.com"]],
+    whatsappLabel: "WhatsApp",
+    whatsappNumber: "+1 (727) 482-5106",
     fields: ["Nombre", "Empresa", "Email", "¿Cómo podemos ayudarte?"],
     placeholders: ["Tu nombre completo", "Nombre de la empresa", "tu@empresa.com", "Cuéntanos sobre tus necesidades"],
     send: "Enviar Solicitud",
+    sending: "Enviando...",
     sent: "Solicitud enviada — pronto estaremos en contacto.",
+    formError: "Algo salió mal. Intenta de nuevo o escríbenos directamente.",
     location: "Miami, Florida · Servicio global",
     hours: "Lunes–viernes · 9:00–18:00 ET",
     slogan: "Conectando mercados. Entregando resultados.",
-    columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Abastecimiento", "Distribución", "Operaciones"], ["Legal", "Privacidad", "Términos"]],
+    columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Abastecimiento", "Distribución", "Logística"], ["Legal", "Privacidad", "Términos"]],
     rights: "Todos los derechos reservados.",
     footerLocation: "Con sede en Florida · Servicio Global",
   },
@@ -220,6 +235,8 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [testimonial, setTestimonial] = useState(0);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [formError, setFormError] = useState(false);
   const [metricsActive, setMetricsActive] = useState(false);
   const metricsRef = useRef<HTMLDivElement>(null);
   const t = copy[language];
@@ -240,9 +257,25 @@ function Index() {
 
   const setLang = (next: Language) => { setLanguage(next); window.localStorage.setItem("nexus-language", next); };
   const navTargets = ["about", "services", "process", "why", "contact"];
-  const serviceIcons = [Search, ShoppingBag, Network];
-  const stepIcons = [Search, Truck, PackageCheck];
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSent(true); event.currentTarget.reset(); };
+  const serviceIcons = [Search, ShoppingBag, Network, Ship];
+  const stepIcons = [Search, Ship, PackageCheck];
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    // Honeypot: real visitors never fill this hidden field, bots usually do.
+    if (data.get("_gotcha")) { form.reset(); setSent(true); return; }
+    setSending(true);
+    setFormError(false);
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
+      if (response.ok) { setSent(true); form.reset(); } else { setFormError(true); }
+    } catch {
+      setFormError(true);
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <main id="top" className="overflow-hidden bg-background text-foreground">
@@ -298,7 +331,7 @@ function Index() {
             <div><div className="eyebrow text-accent">{t.servicesLabel}</div><h2 className="section-title mt-5 max-w-3xl">{t.servicesTitle}</h2></div>
             <p className="max-w-md text-muted-foreground">{t.servicesIntro}</p>
           </Reveal>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 justify-items-center max-w-5xl mx-auto">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {t.serviceItems.map(([title, body], i) => { const Icon = serviceIcons[i] ?? Box; return <Reveal key={title} delay={i * 90}><article className="service-card"><Icon size={28} strokeWidth={1.6} /><span className="service-index">0{i + 1}</span><h3>{title}</h3><p>{body}</p><ArrowRight className="mt-auto" size={18} /></article></Reveal>; })}
           </div>
         </div>
@@ -339,8 +372,8 @@ function Index() {
       <section id="contact" className="contact-section section-pad relative bg-primary text-primary-foreground">
         <div className="process-grid" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.8fr_1.2fr] lg:gap-24 lg:px-8">
-          <Reveal><div className="eyebrow text-accent">{t.contactLabel}</div><h2 className="section-title mt-5 text-primary-foreground">{t.contactTitle}</h2><p className="mt-6 max-w-md leading-7 text-primary-foreground/65">{t.contactBody}</p><div className="mt-10 space-y-5"><a href="mailto:NexusGlobalSupplySolutions@gmail.com" className="contact-detail"><Mail size={19} />NexusGlobalSupplySolutions@gmail.com</a><div className="contact-detail"><MapPin size={19} />{t.location}</div><div className="contact-detail"><Clock3 size={19} />{t.hours}</div></div></Reveal>
-          <Reveal delay={120}><form className="contact-form" onSubmit={handleSubmit}><div className="grid gap-5 sm:grid-cols-2">{t.fields.slice(0, 3).map((field, i) => <label key={field} className={i === 2 ? "sm:col-span-2" : ""}><span>{field}</span><input type={i === 2 ? "email" : "text"} placeholder={t.placeholders[i]} required /></label>)}<label className="sm:col-span-2"><span>{t.fields[3]}</span><textarea placeholder={t.placeholders[3]} rows={5} required /></label></div><button type="submit" className="button button-accent mt-6">{t.send}<ArrowRight size={17} /></button>{sent && <p className="mt-4 text-sm text-success" role="status"><Check className="inline-block" size={16} /> {t.sent}</p>}</form></Reveal>
+          <Reveal><div className="eyebrow text-accent">{t.contactLabel}</div><h2 className="section-title mt-5 text-primary-foreground">{t.contactTitle}</h2><p className="mt-6 max-w-md leading-7 text-primary-foreground/65">{t.contactBody}</p><div className="mt-10 space-y-5">{t.emails.map(([label, email]) => <a key={email} href={`mailto:${email}`} className="contact-detail"><Mail size={19} /><span><strong className="text-primary-foreground">{label}:</strong> {email}</span></a>)}<a href="https://wa.me/17274825106" target="_blank" rel="noopener noreferrer" className="contact-detail"><MessageCircle size={19} /><span><strong className="text-primary-foreground">{t.whatsappLabel}:</strong> {t.whatsappNumber}</span></a><div className="contact-detail"><MapPin size={19} />{t.location}</div><div className="contact-detail"><Clock3 size={19} />{t.hours}</div></div></Reveal>
+          <Reveal delay={120}><form className="contact-form" onSubmit={handleSubmit}><input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} /><div className="grid gap-5 sm:grid-cols-2">{t.fields.slice(0, 3).map((field, i) => <label key={field} className={i === 2 ? "sm:col-span-2" : ""}><span>{field}</span><input name={["name", "company", "email"][i]} type={i === 2 ? "email" : "text"} placeholder={t.placeholders[i]} required /></label>)}<label className="sm:col-span-2"><span>{t.fields[3]}</span><textarea name="message" placeholder={t.placeholders[3]} rows={5} required /></label></div><button type="submit" className="button button-accent mt-6" disabled={sending}>{sending ? t.sending : t.send}<ArrowRight size={17} /></button>{sent && <p className="mt-4 text-sm text-success" role="status"><Check className="inline-block" size={16} /> {t.sent}</p>}{formError && <p className="mt-4 text-sm text-destructive" role="alert">{t.formError}</p>}</form></Reveal>
         </div>
       </section>
 

@@ -208,7 +208,7 @@ function Privacy() {
             {t.sections.section7.intro}
           </p>
           <p className="mt-4 leading-7 text-muted-foreground">
-            <strong>{t.sections.section7.email}</strong> NexusGlobalSupplySolutions@gmail.com<br />
+            <strong>{t.sections.section7.email}</strong> contact@nexusglobalss.com<br />
             <strong>{t.sections.section7.address}</strong> {t.sections.section7.location}
           </p>
         </div>
