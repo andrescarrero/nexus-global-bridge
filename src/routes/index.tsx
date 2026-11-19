@@ -14,7 +14,6 @@ import {
   Menu,
   MessageCircle,
   Network,
-  Quote,
   Search,
   ShoppingBag,
   X,
@@ -45,7 +44,7 @@ const copy = {
   en: {
     nav: ["About", "Services", "Process", "Why Nexus", "Suppliers", "Contact"],
     heroLabel: "WHOLESALE PURCHASING & SOURCING",
-    heroTitle: "Wholesale Sourcing & Distribution Opportunities",
+    heroTitle: "Building Long-Term Supplier Partnerships",
     heroSubtitle: "We work with brands, manufacturers, and wholesale suppliers to source products across a range of categories for the U.S. market, with an eye toward international growth.",
     quote: "Partner With Us",
     learn: "Learn More",
@@ -56,7 +55,7 @@ const copy = {
     imageCaption: ["U.S. BASED", "OPEN TO INTERNATIONAL TRADE"],
     servicesLabel: "WHAT WE DO",
     servicesTitle: "Focused on wholesale purchasing and sourcing",
-    servicesIntro: "We purchase from brands and wholesale suppliers, evaluate products across many categories, and are developing distribution opportunities in the U.S. and internationally.",
+    servicesIntro: "We focus on purchasing from brands and wholesale suppliers, evaluating products across multiple categories, and developing distribution opportunities in the U.S. and internationally.",
     serviceItems: [
       ["Wholesale Purchasing", "We are interested in opening wholesale accounts and purchasing products directly from brands and authorized suppliers."],
       ["Product Sourcing", "We identify and evaluate products and suppliers across a broad range of categories."],
@@ -73,12 +72,12 @@ const copy = {
     whyLabel: "WHY NEXUS",
     whyTitle: "A straightforward partner for suppliers",
     whyBody: "We are a U.S.-based company building our supplier relationships one at a time. We keep communication clear, follow each supplier's account terms and policies, and focus on relationships that can grow over the long term.",
-    metrics: [["LLC", "U.S.-based · Miami, Florida"], ["Clear", "Communication"], ["B2B", "Wholesale account applications welcome"]],
+    metrics: [["LLC", "U.S.-based · Miami, Florida"], ["Clear", "Communication"], ["Supplier Partnerships", "Seeking wholesale purchasing relationships"]],
     valueChips: ["Direct communication", "Respect for supplier policies"],
     trustLabel: "OUR DIFFERENCE",
     trustTitle: "How we work with suppliers",
     testimonials: [
-      ["We value clear, honest communication from the first conversation. We share who we are, what we are looking for, and how we intend to work, so suppliers can make an informed decision about opening an account.", "Total Transparency", "Honest & Clear"],
+      ["We believe strong supplier relationships start with clear communication, respect for sales policies, and a shared understanding of how we will work together.", "Total Transparency", "Honest & Clear"],
       ["We respond promptly to supplier questions and requests for information, and we adapt to each supplier's onboarding process, documentation, and account requirements.", "Responsive Communication", "Prompt & Flexible"],
       ["We respect each supplier's terms, pricing policies, and brand guidelines, and we focus on building relationships that can grow over time.", "Long-term Commitment", "Respectful & Committed"],
     ],
@@ -110,7 +109,7 @@ const copy = {
   es: {
     nav: ["Nosotros", "Servicios", "Proceso", "Por qué Nexus", "Proveedores", "Contacto"],
     heroLabel: "COMPRAS MAYORISTAS Y ABASTECIMIENTO",
-    heroTitle: "Abastecimiento Mayorista y Oportunidades de Distribución",
+    heroTitle: "Construyendo Alianzas Duraderas con Proveedores",
     heroSubtitle: "Trabajamos con marcas, fabricantes y proveedores mayoristas para abastecer productos de diversas categorías para el mercado estadounidense, con miras al crecimiento internacional.",
     quote: "Trabaja con Nosotros",
     learn: "Saber Más",
@@ -121,7 +120,7 @@ const copy = {
     imageCaption: ["CON SEDE EN EE. UU.", "ABIERTOS AL COMERCIO INTERNACIONAL"],
     servicesLabel: "QUÉ HACEMOS",
     servicesTitle: "Enfocados en compras mayoristas y abastecimiento",
-    servicesIntro: "Compramos a marcas y proveedores mayoristas, evaluamos productos de diversas categorías y estamos desarrollando oportunidades de distribución en EE. UU. y oportunidades internacionales.",
+    servicesIntro: "Nos enfocamos en comprar a marcas y proveedores mayoristas, evaluar productos de múltiples categorías y desarrollar oportunidades de distribución en EE. UU. y a nivel internacional.",
     serviceItems: [
       ["Compras Mayoristas", "Nos interesa abrir cuentas mayoristas y comprar productos directamente a marcas y proveedores autorizados."],
       ["Abastecimiento de Productos", "Identificamos y evaluamos productos y proveedores en una amplia variedad de categorías."],
@@ -138,12 +137,12 @@ const copy = {
     whyLabel: "POR QUÉ NEXUS",
     whyTitle: "Un aliado directo para proveedores",
     whyBody: "Somos una empresa con sede en EE. UU. que construye sus relaciones con proveedores una a una. Mantenemos una comunicación clara, respetamos las condiciones y políticas de cuenta de cada proveedor y nos enfocamos en relaciones que puedan crecer a largo plazo.",
-    metrics: [["LLC", "Con sede en EE. UU. · Miami, Florida"], ["Clara", "Comunicación"], ["B2B", "Solicitudes de cuenta mayorista bienvenidas"]],
+    metrics: [["LLC", "Con sede en EE. UU. · Miami, Florida"], ["Clara", "Comunicación"], ["Alianzas con Proveedores", "Buscamos relaciones de compra mayorista"]],
     valueChips: ["Comunicación directa", "Respeto a las políticas del proveedor"],
     trustLabel: "NUESTRA DIFERENCIA",
     trustTitle: "Cómo trabajamos con proveedores",
     testimonials: [
-      ["Valoramos una comunicación clara y honesta desde la primera conversación. Compartimos quiénes somos, qué buscamos y cómo pensamos trabajar, para que cada proveedor pueda decidir con información si abrirnos una cuenta.", "Transparencia Total", "Honesto y Claro"],
+      ["Creemos que una relación sólida con los proveedores comienza con una comunicación clara, el respeto a sus políticas de venta y un entendimiento compartido de cómo trabajaremos juntos.", "Transparencia Total", "Honesto y Claro"],
       ["Respondemos con prontitud a las preguntas y solicitudes de información de los proveedores, y nos adaptamos a su proceso de alta, documentación y requisitos de cuenta.", "Comunicación Ágil", "Rápido y Flexible"],
       ["Respetamos las condiciones, políticas de precios y lineamientos de marca de cada proveedor, y nos enfocamos en construir relaciones que puedan crecer con el tiempo.", "Compromiso a Largo Plazo", "Respetuoso y Comprometido"],
     ],
@@ -354,8 +353,7 @@ function Index() {
           <Reveal className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
             <div><div className="eyebrow text-accent">{t.trustLabel}</div><h2 className="section-title mt-5 text-charcoal-foreground">{t.trustTitle}</h2></div>
             <div className="testimonial-panel">
-              <Quote className="text-accent" size={38} strokeWidth={1.4} />
-              <div key={`${language}-${testimonial}`} className="testimonial-fade"><blockquote className="mt-7 text-xl font-light leading-relaxed md:text-2xl">“{t.testimonials[testimonial]?.[0]}”</blockquote><div className="mt-8"><strong>{t.testimonials[testimonial]?.[1]}</strong><span className="mt-1 block text-sm text-charcoal-foreground/55">{t.testimonials[testimonial]?.[2]}</span></div></div>
+              <div key={`${language}-${testimonial}`} className="testimonial-fade"><p className="mt-7 text-xl font-light leading-relaxed md:text-2xl">{t.testimonials[testimonial]?.[0]}</p><div className="mt-8"><strong>{t.testimonials[testimonial]?.[1]}</strong><span className="mt-1 block text-sm text-charcoal-foreground/55">{t.testimonials[testimonial]?.[2]}</span></div></div>
               <div className="mt-8 flex gap-2"><button className="carousel-button" onClick={() => setTestimonial((testimonial - 1 + t.testimonials.length) % t.testimonials.length)} aria-label="Previous"><ChevronLeft size={18} /></button><button className="carousel-button" onClick={() => setTestimonial((testimonial + 1) % t.testimonials.length)} aria-label="Next"><ChevronRight size={18} /></button></div>
             </div>
           </Reveal>
