@@ -34,19 +34,19 @@ Fondo oscuro navy #0D2B5E con una malla geométrica animada (nodos y líneas int
 
 Logo NGSS centrado o esquina superior izquierda
 
-Título principal: "Your Bridge to the World's Supply" — blanco, Montserrat ExtraBold, gran tamaño
+Título principal: "Wholesale Sourcing & Distribution Opportunities" — blanco, Montserrat ExtraBold, gran tamaño
 
-Subtítulo: "End-to-end supply chain solutions for the modern digital marketplace" — gris claro, Inter Light
+Subtítulo: "We work with brands, manufacturers, and wholesale suppliers to source products across a range of categories for the U.S. market, with an eye toward international growth." — gris claro, Inter Light
 
-CTA doble: botón sólido naranja "Get a Quote" + botón outline blanco "Learn More"
+CTA doble: botón sólido naranja "Partner With Us" + botón outline blanco "Learn More"
 
 Transición: fade-in con parallax suave al hacer scroll
 
 2. ABOUT / WHO WE ARE
 
-Fondo blanco, layout 50/50: texto izquierda, imagen derecha (foto editorial de logística/tecnología, tono azul)
+Fondo blanco, layout 50/50: texto izquierda, imagen derecha (foto editorial, tono azul)
 
-Texto: misión de la empresa, valores de conectividad y confiabilidad
+Texto: empresa con sede en EE. UU. enfocada en compras mayoristas y abastecimiento
 
 Línea naranja decorativa vertical al lado izquierdo del texto
 
@@ -58,7 +58,7 @@ Fondo gris claro #F4F6F9, grid de 3 o 4 cards
 
 Cada card con ícono minimalista lineal (navy), título en Bold y descripción en Inter Regular
 
-Servicios sugeridos: International Sourcing / E-Commerce Distribution / Supply Chain Management / Import & Logistics
+Servicios: Wholesale Purchasing / Product Sourcing / U.S. Distribution Opportunities / International Opportunities
 
 Hover effect: card eleva sombra suave + borde naranja aparece en la parte superior
 
@@ -68,7 +68,7 @@ Animación: cards aparecen con stagger (una tras otra) al entrar al viewport
 
 Fondo navy #0D2B5E, texto blanco
 
-Timeline horizontal con íconos: 1. Source → 2. Ship → 3. Deliver
+Timeline horizontal con íconos: 1. Connect → 2. Review → 3. Partner
 
 Línea de conexión animada entre pasos (naranja, se dibuja de izquierda a derecha al hacer scroll)
 
@@ -76,23 +76,23 @@ Subtexto breve bajo cada paso en gris claro
 
 5. WHY NEXUS — Diferenciadores
 
-Fondo blanco, layout asimétrico: estadísticas grandes a la izquierda (ej. 500+ Products Sourced / 20+ Countries Served / 99% On-Time Delivery) en naranja + descripción a la derecha
+Fondo blanco, layout asimétrico: puntos destacados grandes a la izquierda (LLC / Clear / B2B, sin cifras) en naranja + descripción a la derecha
 
-Contador animado (count-up) cuando la sección entra al viewport
+Fade-in cuando la sección entra al viewport
 
-Íconos lineales minimalistas acompañando cada métrica
-
-6. TESTIMONIALS / TRUST SECTION
+6. OUR DIFFERENCE
 
 Fondo charcoal #1C1C2E, texto blanco
 
-Carrusel de testimonios con transición suave (fade o slide)
+Carrusel de principios de trabajo con proveedores (no testimonios), transición suave (fade o slide)
 
-Logos de partners/certificaciones (LLC badge, plataformas e-commerce como Shopify, Amazon)
+Sin logos de partners, certificaciones ni estrellas
 
-Estrellas en naranja, nombre del cliente en Inter SemiBold
+6b. FOR BRANDS & WHOLESALE SUPPLIERS
 
-7. CONTACT / GET A QUOTE
+Sección antes de contacto, enlace "Suppliers" en el nav, email purchasing@nexusglobalss.com
+
+7. CONTACT
 
 Fondo navy #0D2B5E con patrón geométrico sutil
 
@@ -114,7 +114,7 @@ Links de navegación en columnas: Company / Services / Legal
 
 Íconos de redes sociales con hover en naranja
 
-Copyright line: © 2025 Nexus Global Supply Solutions LLC. All rights reserved.
+Copyright line: © 2026 Nexus Global Supply Solutions LLC. All rights reserved.
 
 ✨ Transiciones y Microinteracciones
 
@@ -162,15 +162,15 @@ Botones con min-width fijo para que no cambien de tamaño al cambiar idioma
 
 1. HERO
 
-EN: "Your Bridge to the World's Supply"
+EN: "Wholesale Sourcing & Distribution Opportunities"
 
-ES: "Tu Puente hacia el Abastecimiento Mundial"
+ES: "Abastecimiento Mayorista y Oportunidades de Distribución"
 
-EN subtitle: "End-to-end supply chain solutions for the modern digital marketplace"
+EN subtitle: "We work with brands, manufacturers, and wholesale suppliers to source products across a range of categories for the U.S. market, with an eye toward international growth."
 
-ES subtitle: "Soluciones integrales de cadena de suministro para el comercio digital moderno"
+ES subtitle: "Trabajamos con marcas, fabricantes y proveedores mayoristas para abastecer productos de diversas categorías para el mercado estadounidense, con miras al crecimiento internacional."
 
-CTAs → EN: "Get a Quote" / "Learn More" | ES: "Solicitar Cotización" / "Saber Más"
+CTAs → EN: "Partner With Us" / "Learn More" | ES: "Trabaja con Nosotros" / "Saber Más"
 
 2. ABOUT
 
@@ -182,25 +182,25 @@ Texto de misión y valores en ambos idiomas
 
 EN: "Our Services" | ES: "Nuestros Servicios"
 
-Nombres de servicios traducidos: International Sourcing → Abastecimiento Internacional, etc.
+Nombres de servicios traducidos: Wholesale Purchasing → Compras Mayoristas, etc.
 
 4. HOW IT WORKS
 
 EN: "How It Works" | ES: "Cómo Funciona"
 
-Pasos: EN: Source → Ship → Deliver | ES: Abastecemos → Enviamos → Entregamos
+Pasos: EN: Connect → Review → Partner | ES: Conectamos → Evaluamos → Nos asociamos
 
 5. WHY NEXUS
 
 EN: "Why Choose Nexus?" | ES: "¿Por Qué Elegir Nexus?"
 
-Métricas y descripciones traducidas
+Puntos destacados y descripciones traducidos
 
-6. TESTIMONIALS
+6. OUR DIFFERENCE
 
-Testimonios en ambos idiomas (o mostrar según idioma activo)
+Principios de trabajo con proveedores en ambos idiomas
 
-EN: "What Our Clients Say" | ES: "Lo Que Dicen Nuestros Clientes"
+EN: "How we work with suppliers" | ES: "Cómo trabajamos con proveedores"
 
 7. CONTACT
 

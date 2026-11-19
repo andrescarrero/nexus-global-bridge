@@ -15,14 +15,14 @@ const copy = {
       },
       section2: {
         title: "2. Services",
-        intro: "Nexus provides global supply chain solutions including but not limited to:",
+        intro: "Nexus is a U.S.-based company whose activities include, but are not limited to:",
         items: [
-          "Sourcing and procurement",
-          "E-commerce distribution services",
-          "Supply chain management",
-          "Logistics coordination",
+          "Wholesale purchasing",
+          "Product sourcing",
+          "Developing distribution opportunities in the U.S. market",
+          "Exploring international trade and export opportunities",
         ],
-        outro: "Specific terms for each service will be outlined in individual service agreements.",
+        outro: "Specific terms for any commercial relationship will be outlined in individual agreements.",
       },
       section3: {
         title: "3. Use of Website",
@@ -75,14 +75,14 @@ const copy = {
       },
       section2: {
         title: "2. Servicios",
-        intro: "Nexus proporciona soluciones globales de cadena de suministro que incluyen, pero no se limitan a:",
+        intro: "Nexus es una empresa con sede en EE. UU. cuyas actividades incluyen, pero no se limitan a:",
         items: [
-          "Abastecimiento y adquisiciones",
-          "Servicios de distribución e-commerce",
-          "Gestión de cadena de suministro",
-          "Coordinación logística",
+          "Compras mayoristas",
+          "Abastecimiento de productos",
+          "Desarrollo de oportunidades de distribución en el mercado estadounidense",
+          "Exploración de oportunidades internacionales de comercio y exportación",
         ],
-        outro: "Los términos específicos para cada servicio se detallarán en acuerdos de servicio individuales.",
+        outro: "Los términos específicos de cualquier relación comercial se detallarán en acuerdos individuales.",
       },
       section3: {
         title: "3. Uso del Sitio Web",

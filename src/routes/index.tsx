@@ -8,31 +8,28 @@ import {
   ChevronRight,
   Clock3,
   Globe2,
+  Handshake,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
   Network,
-  PackageCheck,
   Quote,
   Search,
-  Ship,
   ShoppingBag,
-  Star,
-  Truck,
   X,
 } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import logisticsImage from "@/assets/about-image.webp";
+import aboutImage from "@/assets/about-image.webp";
 import { CookieBanner } from "@/components/CookieBanner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nexus Global Supply Solutions | Global Services" },
-      { name: "description", content: "End-to-end sourcing, distribution and logistics solutions connecting modern businesses to global supply." },
-      { property: "og:title", content: "Nexus Global Supply Solutions" },
-      { property: "og:description", content: "Your bridge to the world's supply." },
+      { title: "Nexus Global Supply Solutions | Wholesale Sourcing & Distribution Opportunities" },
+      { name: "description", content: "Nexus Global Supply Solutions LLC is a U.S.-based company in Miami, Florida focused on wholesale purchasing and product sourcing, working with brands, manufacturers, and wholesale suppliers." },
+      { property: "og:title", content: "Nexus Global Supply Solutions LLC" },
+      { property: "og:description", content: "Wholesale sourcing and distribution opportunities. Working with brands, manufacturers, and wholesale suppliers." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -46,124 +43,134 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwlllrdd";
 
 const copy = {
   en: {
-    nav: ["About", "Services", "Process", "Why Nexus", "Contact"],
-    heroLabel: "GLOBAL SUPPLY, SIMPLIFIED",
-    heroTitle: "Your Bridge to Supply",
-    heroSubtitle: "End-to-end supply chain solutions for the modern digital marketplace.",
-    quote: "Get a Quote",
+    nav: ["About", "Services", "Process", "Why Nexus", "Suppliers", "Contact"],
+    heroLabel: "WHOLESALE PURCHASING & SOURCING",
+    heroTitle: "Wholesale Sourcing & Distribution Opportunities",
+    heroSubtitle: "We work with brands, manufacturers, and wholesale suppliers to source products across a range of categories for the U.S. market, with an eye toward international growth.",
+    quote: "Partner With Us",
     learn: "Learn More",
     aboutLabel: "WHO WE ARE",
-    aboutTitle: "Global reach. Personal accountability.",
-    aboutBody: "Nexus connects ambitious businesses to a dependable global supply network. We manage every critical handoff—from identifying the right source to delivering the final shipment—with clarity, precision, and care.",
-    aboutLink: "Discover our approach",
-    imageCaption: ["GLOBAL NETWORK", "LOCAL CONTROL"],
+    aboutTitle: "U.S. based. Focused on long-term partnerships.",
+    aboutBody: "Nexus Global Supply Solutions LLC is a U.S.-based company focused on wholesale purchasing and sourcing. We aim to build long-term relationships with brands, manufacturers, and wholesale suppliers across a variety of product categories. We are also open to conversations about international trade and export opportunities.",
+    aboutLink: "See what we do",
+    imageCaption: ["U.S. BASED", "OPEN TO INTERNATIONAL TRADE"],
     servicesLabel: "WHAT WE DO",
-    servicesTitle: "Built for every link in your supply chain",
-    servicesIntro: "One accountable partner across sourcing, commerce, operations, and delivery.",
+    servicesTitle: "Focused on wholesale purchasing and sourcing",
+    servicesIntro: "We purchase from brands and wholesale suppliers, evaluate products across many categories, and are developing distribution opportunities in the U.S. and internationally.",
     serviceItems: [
-      ["International Sourcing", "Find and validate trusted suppliers with transparent pricing and rigorous quality standards."],
-      ["Warehousing & Distribution", "Store and move inventory efficiently across our partner network, ready for any channel."],
-      ["Supply Chain Management", "Gain end-to-end visibility, coordinated operations, and resilient planning."],
-      ["Export & Logistics", "Navigate freight, customs, documentation, and final-mile delivery with confidence."],
+      ["Wholesale Purchasing", "We are interested in opening wholesale accounts and purchasing products directly from brands and authorized suppliers."],
+      ["Product Sourcing", "We identify and evaluate products and suppliers across a broad range of categories."],
+      ["U.S. Distribution Opportunities", "We are interested in developing distribution opportunities for suitable products in the U.S. market."],
+      ["International Opportunities", "We are open to exploring export opportunities, subject to supplier agreements and applicable requirements."],
     ],
-    processLabel: "A CLEARER WAY FORWARD",
+    processLabel: "HOW WE WORK WITH SUPPLIERS",
     processTitle: "How it works",
     steps: [
-      ["Source", "We identify, vet, and secure the right products and suppliers."],
-      ["Ship", "We coordinate freight, customs, and documentation worldwide."],
-      ["Deliver", "Your goods arrive where they need to be, on time and visible."],
+      ["Connect", "We reach out and learn about your catalog and wholesale account requirements."],
+      ["Review", "We evaluate products, pricing, terms, and sales policies."],
+      ["Partner", "We open an account and place orders under your terms."],
     ],
     whyLabel: "WHY NEXUS",
-    whyTitle: "Measured by the outcomes that matter",
-    whyBody: "Global supply chains are complex. Your experience shouldn't be. Our network, operating discipline, and responsive team turn moving parts into dependable progress.",
-    metrics: [["Available support", 24, "/7"], ["Traceability", 100, "%"], ["Hidden costs", 0, ""]],
-    valueChips: ["Proactive visibility", "One accountable team"],
+    whyTitle: "A straightforward partner for suppliers",
+    whyBody: "We are a U.S.-based company building our supplier relationships one at a time. We keep communication clear, follow each supplier's account terms and policies, and focus on relationships that can grow over the long term.",
+    metrics: [["LLC", "U.S.-based · Miami, Florida"], ["Clear", "Communication"], ["B2B", "Wholesale account applications welcome"]],
+    valueChips: ["Direct communication", "Respect for supplier policies"],
     trustLabel: "OUR DIFFERENCE",
-    trustTitle: "What sets us apart",
+    trustTitle: "How we work with suppliers",
     testimonials: [
-      ["Clear pricing from day one. No surprises, no hidden fees. Every step of the process is transparent and visible to you. We believe in building trust through complete openness in every transaction and communication.", "Total Transparency", "Honest & Clear"],
-      ["Your time matters. We respond within 24 hours and adapt to your needs in real-time. Our agile approach means we pivot quickly when circumstances change, keeping your supply chain moving without delays.", "Agile Response", "Fast & Flexible"],
-      ["A team with years of experience in global logistics, 100% focused on your operation's success. We bring deep industry knowledge and proven processes to ensure your shipments arrive on time, every time.", "Dedicated Expertise", "Experienced & Committed"],
+      ["We value clear, honest communication from the first conversation. We share who we are, what we are looking for, and how we intend to work, so suppliers can make an informed decision about opening an account.", "Total Transparency", "Honest & Clear"],
+      ["We respond promptly to supplier questions and requests for information, and we adapt to each supplier's onboarding process, documentation, and account requirements.", "Responsive Communication", "Prompt & Flexible"],
+      ["We respect each supplier's terms, pricing policies, and brand guidelines, and we focus on building relationships that can grow over time.", "Long-term Commitment", "Respectful & Committed"],
     ],
-    partners: "ECOSYSTEM EXPERIENCE",
+    suppliersLabel: "SUPPLIERS",
+    suppliersTitle: "For Brands & Wholesale Suppliers",
+    suppliersBody: "We are interested in establishing wholesale relationships with brands, manufacturers, and suppliers across a variety of product categories. If your company offers wholesale accounts, we would be glad to learn about your catalog, account requirements, and sales policies.",
+    suppliersEmailLabel: "Purchasing inquiries",
+    suppliersChipsTitle: "What we'd like to learn",
+    suppliersChips: ["Product catalog & price list", "Wholesale account requirements", "Sales & pricing policies"],
     contactLabel: "START A CONVERSATION",
-    contactTitle: "Let's move your business forward.",
-    contactBody: "Tell us what you need to source, ship, or simplify. Our team will respond to your request.",
-    emails: [["General inquiries", "info@nexusglobalss.com"], ["Sales & new clients", "contact@nexusglobalss.com"]],
+    contactTitle: "Let's build a wholesale partnership.",
+    contactBody: "If you offer wholesale accounts, tell us about your products and account requirements. We'll get back to you shortly.",
+    emails: [["Purchasing & supplier inquiries", "purchasing@nexusglobalss.com"], ["General inquiries", "info@nexusglobalss.com"], ["Business inquiries", "contact@nexusglobalss.com"]],
     whatsappLabel: "WhatsApp",
     whatsappNumber: "+1 (727) 482-5106",
-    fields: ["Name", "Company", "Email", "How can we help?"],
-    placeholders: ["Your full name", "Company name", "you@company.com", "Tell us about your supply needs"],
-    send: "Send Request",
+    fields: ["Name", "Company", "Email", "Tell us about your company and products"],
+    placeholders: ["Your full name", "Company name", "you@company.com", "Your catalog, product categories, and account requirements"],
+    send: "Send Message",
     sending: "Sending...",
-    sent: "Request sent — we'll be in touch shortly.",
+    sent: "Message sent — we'll be in touch shortly.",
     formError: "Something went wrong. Please try again or email us directly.",
-    location: "Miami, Florida · Serving globally",
+    location: "Miami, Florida, USA",
     hours: "Monday–Friday · 9:00–18:00 ET",
-    slogan: "Connecting Markets. Delivering Results.",
-    columns: [["Company", "About", "Why Nexus"], ["Services", "Sourcing", "Distribution", "Logistics"], ["Legal", "Privacy", "Terms"]],
+    slogan: "Wholesale sourcing. U.S. based.",
+    columns: [["Company", "About", "Why Nexus"], ["Services", "Wholesale Purchasing", "Product Sourcing", "U.S. Distribution Opportunities", "International Opportunities"], ["Legal", "Privacy", "Terms"]],
     rights: "All rights reserved.",
-    footerLocation: "Based in Florida · Serving Globally",
+    footerLocation: "Based in Miami, Florida",
   },
   es: {
-    nav: ["Nosotros", "Servicios", "Proceso", "Por qué Nexus", "Contacto"],
-    heroLabel: "SUMINISTRO GLOBAL, SIMPLIFICADO",
-    heroTitle: "Tu puente hacia el abastecimiento",
-    heroSubtitle: "Soluciones integrales de cadena de suministro para el comercio digital moderno.",
-    quote: "Solicitar Cotización",
+    nav: ["Nosotros", "Servicios", "Proceso", "Por qué Nexus", "Proveedores", "Contacto"],
+    heroLabel: "COMPRAS MAYORISTAS Y ABASTECIMIENTO",
+    heroTitle: "Abastecimiento Mayorista y Oportunidades de Distribución",
+    heroSubtitle: "Trabajamos con marcas, fabricantes y proveedores mayoristas para abastecer productos de diversas categorías para el mercado estadounidense, con miras al crecimiento internacional.",
+    quote: "Trabaja con Nosotros",
     learn: "Saber Más",
     aboutLabel: "QUIÉNES SOMOS",
-    aboutTitle: "Alcance global. Compromiso personal.",
-    aboutBody: "Nexus conecta empresas ambiciosas con una red global de suministro confiable. Gestionamos cada punto crítico—desde identificar la fuente correcta hasta entregar el envío final—con claridad, precisión y cuidado.",
-    aboutLink: "Conoce nuestro enfoque",
-    imageCaption: ["RED GLOBAL", "CONTROL LOCAL"],
+    aboutTitle: "Con sede en EE. UU. Enfocados en relaciones a largo plazo.",
+    aboutBody: "Nexus Global Supply Solutions LLC es una empresa con sede en EE. UU. enfocada en compras mayoristas y abastecimiento. Buscamos construir relaciones a largo plazo con marcas, fabricantes y proveedores mayoristas de diversas categorías de productos. También estamos abiertos a conversar sobre oportunidades internacionales de comercio y exportación.",
+    aboutLink: "Conoce lo que hacemos",
+    imageCaption: ["CON SEDE EN EE. UU.", "ABIERTOS AL COMERCIO INTERNACIONAL"],
     servicesLabel: "QUÉ HACEMOS",
-    servicesTitle: "Presentes en cada eslabón de tu cadena",
-    servicesIntro: "Un solo aliado responsable para abastecimiento, comercio, operaciones y entrega.",
+    servicesTitle: "Enfocados en compras mayoristas y abastecimiento",
+    servicesIntro: "Compramos a marcas y proveedores mayoristas, evaluamos productos de diversas categorías y estamos desarrollando oportunidades de distribución en EE. UU. y oportunidades internacionales.",
     serviceItems: [
-      ["Abastecimiento Internacional", "Encontramos y validamos proveedores confiables con precios transparentes y estándares rigurosos."],
-      ["Almacenamiento y Distribución", "Almacenamos y movemos inventario de forma eficiente en nuestra red de socios, listo para cualquier canal."],
-      ["Gestión de Cadena de Suministro", "Obtén visibilidad integral, operaciones coordinadas y planificación resiliente."],
-      ["Exportación y Logística", "Gestiona carga, aduanas, documentación y última milla con confianza."],
+      ["Compras Mayoristas", "Nos interesa abrir cuentas mayoristas y comprar productos directamente a marcas y proveedores autorizados."],
+      ["Abastecimiento de Productos", "Identificamos y evaluamos productos y proveedores en una amplia variedad de categorías."],
+      ["Oportunidades de Distribución en EE. UU.", "Nos interesa desarrollar oportunidades de distribución para productos adecuados en el mercado estadounidense."],
+      ["Oportunidades Internacionales", "Estamos abiertos a explorar oportunidades de exportación, sujetas a los acuerdos con proveedores y a los requisitos aplicables."],
     ],
-    processLabel: "UN CAMINO MÁS CLARO",
+    processLabel: "CÓMO TRABAJAMOS CON PROVEEDORES",
     processTitle: "Cómo funciona",
     steps: [
-      ["Abastecemos", "Identificamos, validamos y aseguramos los productos y proveedores correctos."],
-      ["Enviamos", "Coordinamos carga, aduanas y documentación en todo el mundo."],
-      ["Entregamos", "Tu mercancía llega a destino, a tiempo y siempre visible."],
+      ["Conectamos", "Te contactamos y conocemos tu catálogo y los requisitos de tu cuenta mayorista."],
+      ["Evaluamos", "Revisamos productos, precios, condiciones y políticas de venta."],
+      ["Nos asociamos", "Abrimos una cuenta y realizamos pedidos según tus condiciones."],
     ],
     whyLabel: "POR QUÉ NEXUS",
-    whyTitle: "Medidos por los resultados que importan",
-    whyBody: "Las cadenas globales son complejas. Tu experiencia no debería serlo. Nuestra red, disciplina operativa y equipo ágil convierten cada parte en progreso confiable.",
-    metrics: [["Soporte disponible", 24, "/7"], ["Trazabilidad", 100, "%"], ["Costos ocultos", 0, ""]],
-    valueChips: ["Visibilidad proactiva", "Un equipo responsable"],
+    whyTitle: "Un aliado directo para proveedores",
+    whyBody: "Somos una empresa con sede en EE. UU. que construye sus relaciones con proveedores una a una. Mantenemos una comunicación clara, respetamos las condiciones y políticas de cuenta de cada proveedor y nos enfocamos en relaciones que puedan crecer a largo plazo.",
+    metrics: [["LLC", "Con sede en EE. UU. · Miami, Florida"], ["Clara", "Comunicación"], ["B2B", "Solicitudes de cuenta mayorista bienvenidas"]],
+    valueChips: ["Comunicación directa", "Respeto a las políticas del proveedor"],
     trustLabel: "NUESTRA DIFERENCIA",
-    trustTitle: "Lo que nos distingue",
+    trustTitle: "Cómo trabajamos con proveedores",
     testimonials: [
-      ["Precios claros desde el inicio. Sin sorpresas, sin costos ocultos. Cada paso del proceso es transparente y visible para ti. Creemos en construir confianza a través de la apertura total en cada transacción y comunicación.", "Transparencia Total", "Honesto y Claro"],
-      ["Tu tiempo es valioso. Respondemos en menos de 24 horas y nos adaptamos a tus necesidades en tiempo real. Nuestro enfoque ágil significa que pivotamos rápidamente cuando las circunstancias cambian, manteniendo tu cadena de suministro en movimiento sin demoras.", "Respuesta Ágil", "Rápido y Flexible"],
-      ["Un equipo con años de experiencia en logística global, enfocado 100% en el éxito de tu operación. Aportamos conocimiento profundo de la industria y procesos probados para garantizar que tus envíos lleguen a tiempo, siempre.", "Experiencia Dedicada", "Experimentado y Comprometido"],
+      ["Valoramos una comunicación clara y honesta desde la primera conversación. Compartimos quiénes somos, qué buscamos y cómo pensamos trabajar, para que cada proveedor pueda decidir con información si abrirnos una cuenta.", "Transparencia Total", "Honesto y Claro"],
+      ["Respondemos con prontitud a las preguntas y solicitudes de información de los proveedores, y nos adaptamos a su proceso de alta, documentación y requisitos de cuenta.", "Comunicación Ágil", "Rápido y Flexible"],
+      ["Respetamos las condiciones, políticas de precios y lineamientos de marca de cada proveedor, y nos enfocamos en construir relaciones que puedan crecer con el tiempo.", "Compromiso a Largo Plazo", "Respetuoso y Comprometido"],
     ],
-    partners: "EXPERIENCIA EN EL ECOSISTEMA",
+    suppliersLabel: "PROVEEDORES",
+    suppliersTitle: "Para Marcas y Proveedores Mayoristas",
+    suppliersBody: "Nos interesa establecer relaciones mayoristas con marcas, fabricantes y proveedores de diversas categorías de productos. Si tu empresa ofrece cuentas mayoristas, con gusto conoceremos tu catálogo, los requisitos de cuenta y tus políticas de venta.",
+    suppliersEmailLabel: "Consultas de compras",
+    suppliersChipsTitle: "Lo que nos gustaría conocer",
+    suppliersChips: ["Catálogo y lista de precios", "Requisitos de cuenta mayorista", "Políticas de venta y precios"],
     contactLabel: "INICIEMOS UNA CONVERSACIÓN",
-    contactTitle: "Movamos tu negocio hacia adelante.",
-    contactBody: "Cuéntanos qué necesitas abastecer, enviar o simplificar. Nuestro equipo responderá tu solicitud.",
-    emails: [["Información general", "info@nexusglobalss.com"], ["Clientes y nuevos negocios", "contact@nexusglobalss.com"]],
+    contactTitle: "Construyamos una relación mayorista.",
+    contactBody: "Si ofreces cuentas mayoristas, cuéntanos sobre tus productos y los requisitos de cuenta. Te responderemos a la brevedad.",
+    emails: [["Compras y consultas de proveedores", "purchasing@nexusglobalss.com"], ["Información general", "info@nexusglobalss.com"], ["Consultas comerciales", "contact@nexusglobalss.com"]],
     whatsappLabel: "WhatsApp",
     whatsappNumber: "+1 (727) 482-5106",
-    fields: ["Nombre", "Empresa", "Email", "¿Cómo podemos ayudarte?"],
-    placeholders: ["Tu nombre completo", "Nombre de la empresa", "tu@empresa.com", "Cuéntanos sobre tus necesidades"],
-    send: "Enviar Solicitud",
+    fields: ["Nombre", "Empresa", "Email", "Cuéntanos sobre tu empresa y tus productos"],
+    placeholders: ["Tu nombre completo", "Nombre de la empresa", "tu@empresa.com", "Tu catálogo, categorías de productos y requisitos de cuenta"],
+    send: "Enviar Mensaje",
     sending: "Enviando...",
-    sent: "Solicitud enviada — pronto estaremos en contacto.",
+    sent: "Mensaje enviado — pronto estaremos en contacto.",
     formError: "Algo salió mal. Intenta de nuevo o escríbenos directamente.",
-    location: "Miami, Florida · Servicio global",
+    location: "Miami, Florida, EE. UU.",
     hours: "Lunes–viernes · 9:00–18:00 ET",
-    slogan: "Conectando mercados. Entregando resultados.",
-    columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Abastecimiento", "Distribución", "Logística"], ["Legal", "Privacidad", "Términos"]],
+    slogan: "Abastecimiento mayorista. Con sede en EE. UU.",
+    columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Compras Mayoristas", "Abastecimiento de Productos", "Oportunidades de Distribución en EE. UU.", "Oportunidades Internacionales"], ["Legal", "Privacidad", "Términos"]],
     rights: "Todos los derechos reservados.",
-    footerLocation: "Con sede en Florida · Servicio Global",
+    footerLocation: "Con sede en Miami, Florida",
   },
 } as const;
 
@@ -218,15 +225,8 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   return <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
 }
 
-function Metric({ value, suffix, label, active }: { value: number; suffix: string; label: string; active: boolean }) {
-  const [display, setDisplay] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    const start = performance.now();
-    const tick = (now: number) => { const progress = Math.min((now - start) / 1200, 1); setDisplay(Math.round(value * (1 - Math.pow(1 - progress, 3)))); if (progress < 1) requestAnimationFrame(tick); };
-    requestAnimationFrame(tick);
-  }, [active, value]);
-  return <div className="metric"><div className="font-display text-5xl font-extrabold text-accent md:text-6xl">{display}{suffix}</div><div className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-foreground/65">{label}</div></div>;
+function Metric({ value, label }: { value: string; label: string }) {
+  return <div className="metric"><div className="font-display text-5xl font-extrabold text-accent md:text-6xl">{value}</div><div className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-foreground/65">{label}</div></div>;
 }
 
 function Index() {
@@ -237,8 +237,6 @@ function Index() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState(false);
-  const [metricsActive, setMetricsActive] = useState(false);
-  const metricsRef = useRef<HTMLDivElement>(null);
   const t = copy[language];
 
   useEffect(() => {
@@ -248,17 +246,12 @@ function Index() {
     onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  useEffect(() => {
-    const el = metricsRef.current; if (!el) return;
-    const observer = new IntersectionObserver(([entry]) => { if (entry?.isIntersecting) { setMetricsActive(true); observer.disconnect(); } }, { threshold: 0.25 });
-    observer.observe(el); return () => observer.disconnect();
-  }, []);
   useEffect(() => { const timer = window.setInterval(() => setTestimonial((current) => (current + 1) % t.testimonials.length), 6500); return () => window.clearInterval(timer); }, [t.testimonials.length]);
 
   const setLang = (next: Language) => { setLanguage(next); window.localStorage.setItem("nexus-language", next); };
-  const navTargets = ["about", "services", "process", "why", "contact"];
-  const serviceIcons = [Search, ShoppingBag, Network, Ship];
-  const stepIcons = [Search, Ship, PackageCheck];
+  const navTargets = ["about", "services", "process", "why", "suppliers", "contact"];
+  const serviceIcons = [ShoppingBag, Search, Network, Globe2];
+  const stepIcons = [Mail, Search, Handshake];
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -299,7 +292,7 @@ function Index() {
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-28 lg:px-8">
           <div className="max-w-4xl animate-hero-in">
             <div className="eyebrow text-accent">{t.heroLabel}</div>
-            <h1 className="mt-6 max-w-4xl font-display text-[clamp(3rem,7vw,6.6rem)] font-extrabold leading-[0.96] tracking-normal">{t.heroTitle}</h1>
+            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2rem,7vw,6.6rem)] font-extrabold leading-[0.96] tracking-normal">{t.heroTitle}</h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-relaxed text-primary-foreground/72 md:text-xl">{t.heroSubtitle}</p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a href="#contact" className="button button-accent">{t.quote}<ArrowRight size={17} /></a>
@@ -319,7 +312,7 @@ function Index() {
             <a href="#services" className="text-link mt-8 inline-flex items-center gap-2">{t.aboutLink}<ArrowRight size={16} /></a>
           </Reveal>
           <Reveal className="relative" delay={120}>
-            <div className="image-frame"><img src={logisticsImage} alt="Nexus Global Supply Solutions" loading="lazy" width={1400} height={1100} className="h-full w-full object-cover" /></div>
+            <div className="image-frame"><img src={aboutImage} alt="Nexus Global Supply Solutions" loading="lazy" width={1400} height={1100} className="h-full w-full object-cover" /></div>
             <div className="image-caption"><Globe2 size={18} /><span>{t.imageCaption[0]}<br /><strong>{t.imageCaption[1]}</strong></span></div>
           </Reveal>
         </div>
@@ -342,15 +335,15 @@ function Index() {
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal className="text-center"><div className="eyebrow text-accent">{t.processLabel}</div><h2 className="section-title mt-5 text-primary-foreground">{t.processTitle}</h2></Reveal>
           <Reveal className="process-track mt-16">
-            {t.steps.map(([title, body], i) => { const Icon = stepIcons[i] ?? Truck; return <div className="process-step" key={title}><div className="step-icon"><Icon size={27} strokeWidth={1.6} /></div><div className="step-number">0{i + 1}</div><h3>{title}</h3><p>{body}</p></div>; })}
+            {t.steps.map(([title, body], i) => { const Icon = stepIcons[i] ?? Handshake; return <div className="process-step" key={title}><div className="step-icon"><Icon size={27} strokeWidth={1.6} /></div><div className="step-number">0{i + 1}</div><h3>{title}</h3><p>{body}</p></div>; })}
           </Reveal>
         </div>
       </section>
 
       <section id="why" className="section-pad bg-background">
         <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[1.1fr_.9fr] lg:gap-24 lg:px-8">
-          <div ref={metricsRef} className="grid gap-10 sm:grid-cols-3 lg:grid-cols-1">
-            {t.metrics.map(([label, value, suffix]) => <Metric key={label} label={label} value={value} suffix={suffix} active={metricsActive} />)}
+          <div className="grid gap-10 sm:grid-cols-3 lg:grid-cols-1">
+            {t.metrics.map(([value, label], i) => <Reveal key={label} delay={i * 90}><Metric label={label} value={value} /></Reveal>)}
           </div>
           <Reveal className="lg:pt-8"><div className="eyebrow text-accent">{t.whyLabel}</div><h2 className="section-title mt-5">{t.whyTitle}</h2><p className="mt-7 text-base leading-8 text-muted-foreground">{t.whyBody}</p><div className="mt-9 grid grid-cols-2 gap-4">{t.valueChips.map((chip) => <div key={chip} className="value-chip"><Check size={17} />{chip}</div>)}</div></Reveal>
         </div>
@@ -362,9 +355,25 @@ function Index() {
             <div><div className="eyebrow text-accent">{t.trustLabel}</div><h2 className="section-title mt-5 text-charcoal-foreground">{t.trustTitle}</h2></div>
             <div className="testimonial-panel">
               <Quote className="text-accent" size={38} strokeWidth={1.4} />
-              <div key={`${language}-${testimonial}`} className="testimonial-fade"><div className="mt-7 flex gap-1 text-accent" aria-label="5 stars">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="currentColor" />)}</div><blockquote className="mt-5 text-xl font-light leading-relaxed md:text-2xl">“{t.testimonials[testimonial]?.[0]}”</blockquote><div className="mt-8"><strong>{t.testimonials[testimonial]?.[1]}</strong><span className="mt-1 block text-sm text-charcoal-foreground/55">{t.testimonials[testimonial]?.[2]}</span></div></div>
-              <div className="mt-8 flex gap-2"><button className="carousel-button" onClick={() => setTestimonial((testimonial - 1 + t.testimonials.length) % t.testimonials.length)} aria-label="Previous testimonial"><ChevronLeft size={18} /></button><button className="carousel-button" onClick={() => setTestimonial((testimonial + 1) % t.testimonials.length)} aria-label="Next testimonial"><ChevronRight size={18} /></button></div>
+              <div key={`${language}-${testimonial}`} className="testimonial-fade"><blockquote className="mt-7 text-xl font-light leading-relaxed md:text-2xl">“{t.testimonials[testimonial]?.[0]}”</blockquote><div className="mt-8"><strong>{t.testimonials[testimonial]?.[1]}</strong><span className="mt-1 block text-sm text-charcoal-foreground/55">{t.testimonials[testimonial]?.[2]}</span></div></div>
+              <div className="mt-8 flex gap-2"><button className="carousel-button" onClick={() => setTestimonial((testimonial - 1 + t.testimonials.length) % t.testimonials.length)} aria-label="Previous"><ChevronLeft size={18} /></button><button className="carousel-button" onClick={() => setTestimonial((testimonial + 1) % t.testimonials.length)} aria-label="Next"><ChevronRight size={18} /></button></div>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="suppliers" className="section-pad bg-background">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-[1.1fr_.9fr] lg:gap-24 lg:px-8">
+          <Reveal className="border-l-2 border-accent pl-7 md:pl-10">
+            <div className="eyebrow text-accent">{t.suppliersLabel}</div>
+            <h2 className="section-title mt-5">{t.suppliersTitle}</h2>
+            <p className="mt-7 max-w-xl text-base leading-8 text-muted-foreground">{t.suppliersBody}</p>
+            <a href="mailto:purchasing@nexusglobalss.com" className="text-link mt-8 inline-flex flex-wrap items-center gap-2"><Mail size={16} />{t.suppliersEmailLabel}: purchasing@nexusglobalss.com</a>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="eyebrow text-foreground/65">{t.suppliersChipsTitle}</div>
+            <div className="mt-6 grid gap-4">{t.suppliersChips.map((chip) => <div key={chip} className="value-chip"><Check size={17} />{chip}</div>)}</div>
+            <a href="#contact" className="button button-accent mt-8">{t.quote}<ArrowRight size={17} /></a>
           </Reveal>
         </div>
       </section>
