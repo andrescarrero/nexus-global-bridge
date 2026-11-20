@@ -14,6 +14,7 @@ import {
   Menu,
   MessageCircle,
   Network,
+  Phone,
   Search,
   ShoppingBag,
   X,
@@ -91,6 +92,7 @@ const copy = {
     contactTitle: "Let's build a wholesale partnership.",
     contactBody: "If you offer wholesale accounts, tell us about your products and account requirements. We'll get back to you shortly.",
     emails: [["Purchasing & supplier inquiries", "purchasing@nexusglobalss.com"], ["General inquiries", "info@nexusglobalss.com"], ["Business inquiries", "contact@nexusglobalss.com"]],
+    phoneLabel: "Phone",
     whatsappLabel: "WhatsApp",
     whatsappNumber: "+1 (727) 482-5106",
     fields: ["Name", "Company", "Email", "Tell us about your company and products"],
@@ -99,7 +101,7 @@ const copy = {
     sending: "Sending...",
     sent: "Message sent — we'll be in touch shortly.",
     formError: "Something went wrong. Please try again or email us directly.",
-    location: "Miami, Florida, USA",
+    location: "Nexus Global Supply Solutions LLC · Miami, Florida, USA",
     hours: "Monday–Friday · 9:00–18:00 ET",
     slogan: "Wholesale sourcing. U.S. based.",
     columns: [["Company", "About", "Why Nexus"], ["Services", "Wholesale Purchasing", "Product Sourcing", "U.S. Distribution Opportunities", "International Opportunities"], ["Legal", "Privacy", "Terms"]],
@@ -156,6 +158,7 @@ const copy = {
     contactTitle: "Construyamos una relación mayorista.",
     contactBody: "Si ofreces cuentas mayoristas, cuéntanos sobre tus productos y los requisitos de cuenta. Te responderemos a la brevedad.",
     emails: [["Compras y consultas de proveedores", "purchasing@nexusglobalss.com"], ["Información general", "info@nexusglobalss.com"], ["Consultas comerciales", "contact@nexusglobalss.com"]],
+    phoneLabel: "Teléfono",
     whatsappLabel: "WhatsApp",
     whatsappNumber: "+1 (727) 482-5106",
     fields: ["Nombre", "Empresa", "Email", "Cuéntanos sobre tu empresa y tus productos"],
@@ -164,7 +167,7 @@ const copy = {
     sending: "Enviando...",
     sent: "Mensaje enviado — pronto estaremos en contacto.",
     formError: "Algo salió mal. Intenta de nuevo o escríbenos directamente.",
-    location: "Miami, Florida, EE. UU.",
+    location: "Nexus Global Supply Solutions LLC · Miami, Florida, EE. UU.",
     hours: "Lunes–viernes · 9:00–18:00 ET",
     slogan: "Abastecimiento mayorista. Con sede en EE. UU.",
     columns: [["Compañía", "Nosotros", "Por qué Nexus"], ["Servicios", "Compras Mayoristas", "Abastecimiento de Productos", "Oportunidades de Distribución en EE. UU.", "Oportunidades Internacionales"], ["Legal", "Privacidad", "Términos"]],
@@ -379,14 +382,14 @@ function Index() {
       <section id="contact" className="contact-section section-pad relative bg-primary text-primary-foreground">
         <div className="process-grid" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.8fr_1.2fr] lg:gap-24 lg:px-8">
-          <Reveal><div className="eyebrow text-accent">{t.contactLabel}</div><h2 className="section-title mt-5 text-primary-foreground">{t.contactTitle}</h2><p className="mt-6 max-w-md leading-7 text-primary-foreground/65">{t.contactBody}</p><div className="mt-10 space-y-5">{t.emails.map(([label, email]) => <a key={email} href={`mailto:${email}`} className="contact-detail"><Mail size={19} /><span><strong className="text-primary-foreground">{label}:</strong> {email}</span></a>)}<a href="https://wa.me/17274825106" target="_blank" rel="noopener noreferrer" className="contact-detail"><MessageCircle size={19} /><span><strong className="text-primary-foreground">{t.whatsappLabel}:</strong> {t.whatsappNumber}</span></a><div className="contact-detail"><MapPin size={19} />{t.location}</div><div className="contact-detail"><Clock3 size={19} />{t.hours}</div></div></Reveal>
+          <Reveal><div className="eyebrow text-accent">{t.contactLabel}</div><h2 className="section-title mt-5 text-primary-foreground">{t.contactTitle}</h2><p className="mt-6 max-w-md leading-7 text-primary-foreground/65">{t.contactBody}</p><div className="mt-10 space-y-5">{t.emails.map(([label, email]) => <a key={email} href={`mailto:${email}`} className="contact-detail"><Mail size={19} /><span><strong className="text-primary-foreground">{label}:</strong> {email}</span></a>)}<a href="tel:+17274825106" className="contact-detail"><Phone size={19} /><span><strong className="text-primary-foreground">{t.phoneLabel}:</strong> {t.whatsappNumber}</span></a><a href="https://wa.me/17274825106" target="_blank" rel="noopener noreferrer" className="contact-detail"><MessageCircle size={19} /><span><strong className="text-primary-foreground">{t.whatsappLabel}:</strong> {t.whatsappNumber}</span></a><div className="contact-detail"><MapPin size={19} />{t.location}</div><div className="contact-detail"><Clock3 size={19} />{t.hours}</div></div></Reveal>
           <Reveal delay={120}><form className="contact-form" onSubmit={handleSubmit}><input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} /><div className="grid gap-5 sm:grid-cols-2">{t.fields.slice(0, 3).map((field, i) => <label key={field} className={i === 2 ? "sm:col-span-2" : ""}><span>{field}</span><input name={["name", "company", "email"][i]} type={i === 2 ? "email" : "text"} placeholder={t.placeholders[i]} required /></label>)}<label className="sm:col-span-2"><span>{t.fields[3]}</span><textarea name="message" placeholder={t.placeholders[3]} rows={5} required /></label></div><button type="submit" className="button button-accent mt-6" disabled={sending}>{sending ? t.sending : t.send}<ArrowRight size={17} /></button>{sent && <p className="mt-4 text-sm text-success" role="status"><Check className="inline-block" size={16} /> {t.sent}</p>}{formError && <p className="mt-4 text-sm text-destructive" role="alert">{t.formError}</p>}</form></Reveal>
         </div>
       </section>
 
       <footer className="bg-background py-14 text-foreground border-t border-border">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-border pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-muted-foreground">{t.slogan}</p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column, colIndex) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em] text-foreground">{column[0]}</strong>{column.slice(1).map((link) => {
-          const href = colIndex === 2 && link === "Privacy" ? "/privacy" : colIndex === 2 && link === "Terms" ? "/terms" : "#top";
+        <div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 border-b border-border pb-12 md:grid-cols-[1.4fr_2fr]"><div><Logo /><p className="mt-5 text-sm text-muted-foreground">{t.slogan}</p><p className="mt-4 text-sm text-muted-foreground"><strong className="text-foreground">Nexus Global Supply Solutions LLC</strong><br /><a href="tel:+17274825106" className="hover:text-accent">{t.phoneLabel}: {t.whatsappNumber}</a></p></div><div className="grid grid-cols-3 gap-5">{t.columns.map((column, colIndex) => <div key={column[0]}><strong className="text-xs uppercase tracking-[0.14em] text-foreground">{column[0]}</strong>{column.slice(1).map((link, linkIndex) => {
+          const href = colIndex === 2 ? ["/privacy", "/terms"][linkIndex] ?? "#top" : "#top";
           return <a key={link} href={href} className="mt-3 block text-sm text-muted-foreground hover:text-accent">{link}</a>;
         })}</div>)}</div></div><div className="flex flex-col gap-4 pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Nexus Global Supply Solutions LLC. {t.rights}</span><span>{t.footerLocation}</span></div></div>
       </footer>
